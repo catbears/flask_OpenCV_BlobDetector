@@ -11,7 +11,7 @@ app = Flask(__name__)
 def upload_page():
     if request.method == "POST":
         # Get the uploaded image
-        image = request.files["image"].read()
+        image = request.files["image"].read()h
 
         # Convert the image to a numpy array
         image = cv2.imdecode(np.fromstring(image, np.uint8), cv2.IMREAD_COLOR)
