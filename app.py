@@ -29,6 +29,7 @@ def upload_page():
         # Draw the keypoints on the image
         blob_image = cv2.drawKeypoints(image, keypoints, np.array([]), (0, 0, 255),
                                        cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
         # Store the processed image in a global variable
         global processed_image
         processed_image = blob_image
@@ -48,8 +49,7 @@ def results_page():
     # Convert the jpeg to a base64 string
     encoded_image = base64.b64encode(encoded_image).decode("utf-8")
     encoded_unprocessed_image = base64.b64encode(encoded_unprocessed_image).decode("utf-8")
-    print(len(encoded_image))
-    print(len(encoded_unprocessed_image))
+
     return render_template("results.html", image=encoded_image, unprocessed_image=encoded_unprocessed_image)
 
 
