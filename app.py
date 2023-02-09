@@ -3,6 +3,7 @@ import base64
 import numpy as np
 from flask import Flask, render_template, request, redirect, url_for
 import cv2
+from blob_detector_params import BlobDetectorParams
 
 app = Flask(__name__)
 
@@ -21,9 +22,10 @@ def upload_page():
         unprocessed_image = image
 
         # Process the image to detect blobs
+        params = BlobDetectorParams().params
         gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         blurred_image = cv2.GaussianBlur(gray_image, (5, 5), 0)
-        detector = cv2.SimpleBlobDetector_create()
+        detector = cv2.SimpleBlobDetector_create(params)
         keypoints = detector.detect(blurred_image)
 
         # Draw the keypoints on the image
