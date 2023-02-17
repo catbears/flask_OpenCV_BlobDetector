@@ -22,7 +22,8 @@ def upload_page():
         unprocessed_image = image
 
         # Process the image to detect blobs
-        params = BlobDetectorParams().params
+        # params = BlobDetectorParams().params
+        params = BlobDetectorParams().demo_params()
         gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         blurred_image = cv2.GaussianBlur(gray_image, (5, 5), 0)
         detector = cv2.SimpleBlobDetector_create(params)

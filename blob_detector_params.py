@@ -11,15 +11,15 @@ class BlobDetectorParams:
         """Initialize standard parameters"""
 
         self.params = cv2.SimpleBlobDetector_Params()
-        self.params.minThreshold = 50
-        self.params.maxThreshold = 220
+        self.params.minThreshold = 10
+        self.params.maxThreshold = 200
         self.params.filterByArea = True
-        self.params.minArea = 25
-        self.params.filterByCircularity = False
-        self.params.minCircularity = 0.8
-        self.params.filterByConvexity = True
+        self.params.minArea = 2
+        self.params.filterByCircularity = True
+        self.params.minCircularity = 0.7
+        self.params.filterByConvexity = False
         self.params.maxConvexity = 0.4
-        self.params.filterByInertia = True
+        self.params.filterByInertia = False
         self.params.minInertiaRatio = 0.1
 
     def __str__(self):
@@ -44,18 +44,18 @@ class BlobDetectorParams:
 
         # Filter by Area.
         self.params.filterByArea = True
-        self.params.minArea = 10
+        self.params.minArea = 2
 
         # Filter by Circularity
         self.params.filterByCircularity = True
-        self.params.minCircularity = 0.1
+        self.params.minCircularity = 0.3
 
         # Filter by Convexity
         self.params.filterByConvexity = True
-        self.params.maxConvexity = 0.2
+        self.params.maxConvexity = 0.99
 
         # Filter by Inertia
-        self.params.filterByInertia = True
+        self.params.filterByInertia = False
         self.params.minInertiaRatio = 0.04
 
         return self.params
